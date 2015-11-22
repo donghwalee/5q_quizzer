@@ -1,0 +1,15 @@
+{
+  "name": "5q_quizzer",
+  "version": "1.0.0",
+  "description": "Simple quiz with 5 questions",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Donghwa Lee",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.0.49"
+  }
+}
