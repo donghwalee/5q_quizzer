@@ -1,27 +1,26 @@
 var express     = require('express'),
     server      = express(),
+    router            = express.Router(),
+    PORT              = process.env.PORT || 3000,
+    server            = express(),
+    MONGOURI          = process.env.MONGOLAB_URI || "mongodb://localhost:27017",
+    dbname            = "random_questions",
     bodyParser  = require('body-parser'),
     mongoose    = require('mongoose'),
     Schema      = mongoose.Schema;
 
-var quizSchema  = new Schema({
-  quiz_name: { type: String, required: true },
-  created: { type: Date, default: Date.now },
-  q_and_a: [
+var questionSchema  = new Schema({
+  question_text: { type: String, required: true },
+  answers: [
     {
-      question: { type: String, required: true },
-      answer: [
-        {
-          answer_id: { type: Number, required: true },
-          answer_text: { type: String, require: true }
-        }
-      ],
-      correct_answer_id: { type: Number, required: true }
+      answer_id: { type: Number, required: true },
+      answer_text: { type: String, require: true }
     }
-  ]
+  ],
+  correct_answer_id: { type: Number, required: true }
 });
 
-var Quiz = mongoose.model('quiz', quizSchema);
+var Question = mongoose.model('question', questionSchema);
 
 server.use(express.static('./public'));
 server.use(bodyParser.urlencoded({ extended: true}));
@@ -31,10 +30,44 @@ server.get('/create', function(req, res) {
 });
 
 server.post('/create.html', function(req, res) {
-  console.log("create");
-  console.log(req.body);
+  console.log(req.body.question);
+  var question = new Question({
+    question_text: req.body.question.question_text,
+    answers: [
+      {
+        answer_id: req.body.question.answers[0].answer_id,
+        answer_text: req.body.question.answers[0].answer_text
+      },
+      {
+        answer_id: req.body.question.answers[1].answer_id,
+        answer_text: req.body.question.answers[1].answer_text
+      },
+      {
+        answer_id: req.body.question.answers[2].answer_id,
+        answer_text: req.body.question.answers[2].answer_text
+      },
+      {
+        answer_id: req.body.question.answers[3].answer_id,
+        answer_text: req.body.question.answers[3].answer_text
+      }
+    ],
+    correct_answer_id: req.body.question.correct_answer_id
+  });
+  question.save(function (err, newQuestion) {
+  if (err) {
+      // where should they go for errors???
+      console.log("ERROR");
+      console.log(err);
+      res.redirect(302, '/create.html');
+    } else {
+      console.log("SUCCESS?!");
+      console.log(newQuestion);
+      res.redirect(302, '/create.html');
+    }
+  });
 });
 
-server.listen(3000, function() {
-  console.log("Server is listening");
-})
+mongoose.connect(MONGOURI + "/" + dbname);
+server.listen(PORT, function () {
+  console.log("SERVER IS UP ON PORT: ", PORT);
+});

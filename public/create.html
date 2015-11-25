@@ -8,27 +8,27 @@
     Yo
 
     <form action="/create.html" method="post">
-      <input type="text"
-          name="quiz[quiz_name]"
-          placeholder="Name of the Quiz">
-
-      <br /><hr />
-      QUESTIONS:
+      QUESTION:
       <br />
-      Question 1:
       <input type="text"
-          name="quiz[q_and_a][0][question]"
-          placeholder="First Question">
+          name="question[question_text]"
+          placeholder="Enter Question Here">
           <br />
       Answers:
       <br />
-      <input type="hidden" name="quiz[q_and_a][0][answer][answer_id]" value="0">
-      0: <input type="text" name="quiz[q_and_a][0][answer][answer_text]" placeholder="First Choice">
+      <input type="hidden" name="question[answers][0][answer_id]" value="0">
+      A: <input type="text" name="question[answers][0][answer_text]" placeholder="First Choice">
       <br />
-      <input type="hidden" name="quiz[q_and_a][1][answer][answer_id]" value="1">
-      1: <input type="text" name="quiz[q_and_a][1][answer][answer_text]" placeholder="Second Choice">
+      <input type="hidden" name="question[answers][1][answer_id]" value="1">
+      B: <input type="text" name="question[answers][1][answer_text]" placeholder="Second Choice">
       <br />
-      Correct Answer: <input type="number" name="quiz[q_and_a][correct_answer_id]" placeholder="Correct Answer">
+      <input type="hidden" name="question[answers][2][answer_id]" value="2">
+      C: <input type="text" name="question[answers][2][answer_text]" placeholder="Third Choice">
+      <br />
+      <input type="hidden" name="question[answers][3][answer_id]" value="3">
+      D: <input type="text" name="question[answers][3][answer_text]" placeholder="Fourth Choice">
+      <br />
+      Correct Answer: <input type="number" name="question[correct_answer_id]" placeholder="Correct Answer">
       <br />
       <button type="submit" id="submit-button">
       Create New Quiz
