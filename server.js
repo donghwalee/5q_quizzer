@@ -5,11 +5,11 @@ var express     = require('express'),
     Schema      = mongoose.Schema;
 
 var quizSchema  = new Schema({
-  quiz_name: { type: String, required: true }.
-  created: { type: Date, default: Date.now},
+  quiz_name: { type: String, required: true },
+  created: { type: Date, default: Date.now },
   q_and_a: [
     {
-      question: { type: String, required: true }.
+      question: { type: String, required: true },
       answer: [
         {
           answer_id: { type: Number, required: true },
