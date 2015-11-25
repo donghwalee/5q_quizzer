@@ -21,10 +21,19 @@ var quizSchema  = new Schema({
   ]
 });
 
-var Quiz = mongoose.model('Quiz', quizSchema);
+var Quiz = mongoose.model('quiz', quizSchema);
 
 server.use(express.static('./public'));
-server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true}));
+
+server.get('/create', function(req, res) {
+  res.render('create.html');
+});
+
+server.post('/create.html', function(req, res) {
+  console.log("create");
+  console.log(req.body);
+});
 
 server.listen(3000, function() {
   console.log("Server is listening");
