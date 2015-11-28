@@ -1,13 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="QuizApp">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
     Yo
 
-    <form action="/create.html" method="post">
+    <form ng-controller="CreateController as createCtrl" ng-submit="createCtrl.create()">
+      QUESTION:
+      <br />
+      <input type="text"
+          ng-model="createCtrl.questiontext"
+          placeholder="Enter Question Here">
+          <br />
+      Answers:
+      <br />
+      A: <input type="text" ng-model="First Choice" placeholder="First Choice">
+      <br />
+      <input type="hidden" name="question[answers][1][answer_id]" value="1">
+      B: <input type="text" name="question[answers][1][answer_text]" placeholder="Second Choice">
+      <br />
+      <input type="hidden" name="question[answers][2][answer_id]" value="2">
+      C: <input type="text" name="question[answers][2][answer_text]" placeholder="Third Choice">
+      <br />
+      <input type="hidden" name="question[answers][3][answer_id]" value="3">
+      D: <input type="text" name="question[answers][3][answer_text]" placeholder="Fourth Choice">
+      <br />
+      Correct Answer: <input type="number" name="question[correct_answer_id]" placeholder="Correct Answer">
+      <br />
+      <button type="submit" id="submit-button">
+      Create New Quiz!!
+      </button>
+
+
+      <ul>
+        <li ng-repeat="question in createCtrl.questions">
+          {{question.questiontext}}
+          <br/>
+        </li>
+      </ul>
+
+    </form>
+
+    <!-- <form action="/create.html" method="post">
       QUESTION:
       <br />
       <input type="text"
@@ -33,7 +71,7 @@
       <button type="submit" id="submit-button">
       Create New Quiz
       </button>
-    </form>
+    </form> -->
 
   </body>
 </html>

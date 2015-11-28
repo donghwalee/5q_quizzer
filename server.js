@@ -20,51 +20,61 @@ var questionSchema  = new Schema({
   correct_answer_id: { type: Number, required: true }
 });
 
-var Question = mongoose.model('question', questionSchema);
+var Question = mongoose.model('Question', questionSchema);
 
 server.use(express.static('./public'));
-server.use(bodyParser.urlencoded({ extended: true}));
+// server.use(bodyParser.urlencoded({ extended: true}));
+server.use(bodyParser.json());
 
-server.get('/create', function(req, res) {
-  res.render('create.html');
+server.get('/questions', function(req, res) {
+  // res.render('create.html');
+  Question.find({}, function(err, questions){
+    res.json(questions);
+  })
 });
 
-server.post('/create.html', function(req, res) {
-  console.log(req.body.question);
-  var question = new Question({
-    question_text: req.body.question.question_text,
-    answers: [
-      {
-        answer_id: req.body.question.answers[0].answer_id,
-        answer_text: req.body.question.answers[0].answer_text
-      },
-      {
-        answer_id: req.body.question.answers[1].answer_id,
-        answer_text: req.body.question.answers[1].answer_text
-      },
-      {
-        answer_id: req.body.question.answers[2].answer_id,
-        answer_text: req.body.question.answers[2].answer_text
-      },
-      {
-        answer_id: req.body.question.answers[3].answer_id,
-        answer_text: req.body.question.answers[3].answer_text
-      }
-    ],
-    correct_answer_id: req.body.question.correct_answer_id
+server.post('/questions', function(req, res) {
+  Question.create(req.body, function(err, data){
+    Question.find({}, function(err, questions){
+      res.json(questions);
+    });
   });
-  question.save(function (err, newQuestion) {
-  if (err) {
-      // where should they go for errors???
-      console.log("ERROR");
-      console.log(err);
-      res.redirect(302, '/create.html');
-    } else {
-      console.log("SUCCESS?!");
-      console.log(newQuestion);
-      res.redirect(302, '/create.html');
-    }
-  });
+
+  // console.log(req.body.question);
+  // var question = new Question({
+  //   question_text: req.body.question.question_text,
+  //   answers: [
+  //     {
+  //       answer_id: req.body.question.answers[0].answer_id,
+  //       answer_text: req.body.question.answers[0].answer_text
+  //     },
+  //     {
+  //       answer_id: req.body.question.answers[1].answer_id,
+  //       answer_text: req.body.question.answers[1].answer_text
+  //     },
+  //     {
+  //       answer_id: req.body.question.answers[2].answer_id,
+  //       answer_text: req.body.question.answers[2].answer_text
+  //     },
+  //     {
+  //       answer_id: req.body.question.answers[3].answer_id,
+  //       answer_text: req.body.question.answers[3].answer_text
+  //     }
+  //   ],
+  //   correct_answer_id: req.body.question.correct_answer_id
+  // });
+  // question.save(function (err, newQuestion) {
+  // if (err) {
+  //     // where should they go for errors???
+  //     console.log("ERROR");
+  //     console.log(err);
+  //     res.redirect(302, '/create.html');
+  //   } else {
+  //     console.log("SUCCESS?!");
+  //     console.log(newQuestion);
+  //     res.redirect(302, '/create.html');
+  //   }
+  // });
 });
 
 mongoose.connect(MONGOURI + "/" + dbname);
