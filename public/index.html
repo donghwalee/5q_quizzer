@@ -11,14 +11,14 @@
     <div id="quiz" ng-controller="QuizController as quizCtrl">
       <h1>TEXT GOES HERE {{quizCtrl.activeQuestion}}</h1>
 
-      <div class="progress">
+      <div class="progress {{ (quizCtrl.activeQuestion > -1 && quizCtrl.activeQuestion < quizCtrl.numQuestions ) ? 'active' : 'inactive' }}">
         You are currently on question {{1 + quizCtrl.activeQuestion}} of {{quizCtrl.numQuestions}}
       </div>
-      <!-- <div class="intro">
+      <div class="intro {{ (quizCtrl.activeQuestion > -1) ? 'inactive' : 'active'}}">
         <h2>Welcome</h2>
         <p>TEST YOUR KNOWLEDGE OF...</p>
-        <p class="btn">START</p>
-      </div> -->
+        <p class="btn" ng-click="quizCtrl.activeQuestion = 0">START</p>
+      </div>
       <div ng-repeat="quest in quizCtrl.questions"
       class="question
         {{ $index === quizCtrl.activeQuestion ? 'active' : 'inactive' }}
@@ -43,6 +43,13 @@
           <div class="btn" ng-click="selectContinue()">
             NEXT QUESTION
           </div>
+        </div>
+      </div>
+      <div class="results {{ (quizCtrl.activeQuestion === quizCtrl.numQuestions) ? 'active' : 'inactive'}}">
+        <h3>RESULTS</h3>
+        <p>
+          Thank you! You scored {{quizCtrl.percent}}% by answereing {{quizCtrl.numCorrect}} of total {{quizCtrl.numQuestions}} questions
+        </p>
         </div>
       </div>
 

@@ -4,9 +4,10 @@ app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $h
   var controller = this;
 
   console.log("Is this running?");
-  controller.activeQuestion = 0;
+  controller.activeQuestion = -1;
   controller.numQuestions = 0;
   controller.numCorrect = 0;
+  controller.percent = 0;
 
   $http.get('questions').success(function(data){
     controller.questions = data;
@@ -18,8 +19,6 @@ app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $h
   });
 
   $scope.selectAnswer = function(qIndex, aIndex) {
-    console.log("Q: " + qIndex);
-    console.log("A: " + aIndex);
     var questionState = controller.questions[qIndex].questionState;
     if ( questionState != 'answered' ) {
       controller.questions[qIndex].selectedAnswer = aIndex;
@@ -28,6 +27,7 @@ app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $h
       console.log("Correct: " + correctAnswer );
       if ( aIndex === correctAnswer ) {
         controller.questions[qIndex].correctness = 'correct';
+        controller.numCorrect = controller.numCorrect + 1;
         console.log("Correct");
       } else {
         controller.questions[qIndex].correctness = 'incorrect';
@@ -35,6 +35,7 @@ app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $h
       }
       controller.questions[qIndex].questionState = 'answered';
     };
+    controller.percent = ((controller.numCorrect / controller.numQuestions) * 100).toFixed(1);
 
   };
 

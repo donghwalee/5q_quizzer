@@ -1,20 +1,25 @@
-
+* {
+  padding: 0;
+  margin: 0;
+}
 
 body {
   background-color: white;
-  padding: 20px;
+  padding: 5%;
+  /*NEW*/
+  text-align: center;
 }
 
 #create-questions {
-  background-color: black;
-  color: white;
+  text-align: left;
 }
 
 #quiz {
   font-size: 16px;
   font-weight: 400;
-  width: 650px;
-  height: 650px;
+  /*width: 650px;*/
+  width: 100%;
+  height: 500px;
   position: relative;
   overflow: hidden;
   color: black;
@@ -25,7 +30,7 @@ body {
   font-size: 2em;
   margin: 0px;
   font-weight: 100;
-  position: absolute;
+  position: relative;
   top: 25px;
 }
 
@@ -55,20 +60,33 @@ body {
   border-radius: 6px;
 }
 
-#quiz .progress {
-  width: 550px;
+#quiz .intro {
   position: absolute;
-  top: 160px;
-  left: 40px;
+  top: 150px;
+  /*left: 660px;*/
+  left: 100%;
+  width: 80%;
+}
+
+#quiz .intro p {
+  margin: 0px 0px 40px 0px;
+}
+
+#quiz .progress {
+  width: 80%;
+  position: absolute;
+  top: 100px;
+  left: 100%;
 }
 
 
 
 #quiz .question {
   position: absolute;
-  top: 225px;
-  left: 660px;
-  width: 550px;
+  top: 150px;
+  /*left: 660px;*/
+  left: 100%;
+  width: 80%;
 }
 
 #quiz .question .question-text  {
@@ -79,7 +97,7 @@ body {
 #quiz .question .answer-choice  {
   display: inline-block;
   font-size: 1em;
-  width: 225px;
+  width: 40%;
   border: 2px solid yellow;
   border-radius: 6px;
   padding: 10px;
@@ -105,10 +123,6 @@ body {
   position: absolute;
   top: 5px;
   right: 5px;
-}
-
-#quiz .question .answer-choice.select::after  {
-  background-image: url(/images/wrong.png);
 }
 
 #quiz .question .answer-choice.select::after  {
@@ -150,19 +164,63 @@ body {
   margin-top: 10px;
 }
 
+#quiz .results {
+  position: absolute;
+  top: 150px;
+  left: 100%;
+  width: 80%;
+}
+
 #quiz .active,
 #quiz .inactive {
   transition: left .5s ease-in-out;
 }
 
 #quiz .active {
-  left: 40px;
+  left: 10%;
 }
 
+
+#quiz .progress.inactive {
+  visibility: hidden;
+}
+
+#quiz .intro.inactive,
 #quiz .inactive.answered {
-  left: -1350px;
+  left: -100%;
 }
 
 #quiz .active.answered {
-  left: 40px;
+  left: 10%;
+}
+
+@media screen and (max-width:700px) {
+  #quiz {
+    font-size: 14px;
+  }
+  #quiz h1 {
+    font-size: 1.5em;
+  }
+
+  #quiz h2 {
+    font-size: 2em;
+  }
+
+  #quiz h3 {
+    font-size: 2em;
+  }
+  #quiz .intro {
+    position: absolute;
+    top: 150px;
+  }
+  #quiz .progress {
+    top: 70px;
+  }
+  #quiz .question {
+    position: absolute;
+    top: 100px;
+  }
+  #quiz .question .answer-choice  {
+    width: 80%;
+  }
 }
