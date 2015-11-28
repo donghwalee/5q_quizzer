@@ -3,60 +3,78 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js" charset="utf-8"></script>
-    <script src="/js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
 
 
-    <div id="quiz">
+    <div id="quiz" ng-controller="QuizController as quizCtrl">
       <h1>TEXT GOES HERE</h1>
-      <div class="question">
+      <div class="question
+        {{ $index === activeQuestion ? 'active' : 'inactive' }}
+        {{ quest.questionState === 'answered' ? 'answered' : 'unanswered' }}"
+        ng-repeat="quest in quizCtrl.questions">
         <p class="question-text">
-          question goes here
+          {{quest.question_text}}
         </p>
-        <p class="answer-choice">
-          answer choice 1
+        <p class="answer-choice"
+          ng-class="{ selected:isSelected($parent.$index, $index), correct:isCorrect($parent.$index, $index) }"
+          ng-click="selectAnswer($parent.$index, $index)" ng-repeat="ans in quizCtrl.questions[$index].answers">
+          {{ans.answer_text}}
         </p>
-        <p class="answer-choice selected">
+
+        <!-- <p class="answer-choice">
           answer choice 2
         </p>
-        <p class="answer-choice correct">
+        <p class="answer-choice">
           answer choice 3
         </p>
         <p class="answer-choice">
           answer choice 4
-        </p>
-        <div class="feedback">
+        </p> -->
 
+        <div class="feedback">
+          <p>
+            You are correct!
+          </p>
+          <p>
+            Sorry, you are incorrect
+          </p>
+          <div class="btn">
+            NEXT QUESTION
+          </div>
         </div>
       </div>
-    </div>
+
 
     ANSWER QUESTIONS HERE:
 
-    <form
+    <!-- <form
       ng-controller="CreateController as createCtrl"
-      ng-submit="createCtrl.create()">
+      ng-submit="createCtrl.create()"> -->
 
-      <ul>
-        <li ng-repeat="question in createCtrl.questions">
-          {{question.question_text}}
-          <br/>
-          A: {{question.answers[0].answer_text}}
-          <br/>
-          B: {{question.answers[1].answer_text}}
-          <br/>
-          C: {{question.answers[2].answer_text}}
-          <br/>
-          D: {{question.answers[3].answer_text}}
-          <br/>
-          Correct Answer: {{question.correct_answer_id}}
-        </li>
-      </ul>
+      <!-- <div>
+        <ul>
+          <li ng-repeat="question in createCtrl.questions">
+            {{question.question_text}}
+            <br/>
+            A: {{question.answers[0].answer_text}}
+            <br/>
+            B: {{question.answers[1].answer_text}}
+            <br/>
+            C: {{question.answers[2].answer_text}}
+            <br/>
+            D: {{question.answers[3].answer_text}}
+            <br/>
+            Correct Answer: {{question.correct_answer_id}}
+          </li>
+        </ul>
+      </div> -->
 
-    </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
 
   </body>
 </html>

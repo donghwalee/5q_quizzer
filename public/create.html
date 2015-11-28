@@ -3,70 +3,74 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js" charset="utf-8"></script>
-    <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    ADD QUESTIONS:
 
-    <form
-      ng-controller="CreateController as createCtrl"
-      ng-submit="createCtrl.create()">
-      QUESTION:
-      <br />
-      <input type="text"
-        ng-model="createCtrl.questiontext"
-        placeholder="Enter Question Here">
-          <br />
-      Answers:
-      <br />
-      A:
-      <input type="text"
-        ng-model="createCtrl.firstchoice"
-        placeholder="First Choice">
-      <br />
-      B:
-      <input type="text"
-        ng-model="createCtrl.secondchoice"
-        placeholder="Second Choice">
-      <br />
-      C:
-      <input type="text"
-        ng-model="createCtrl.thirdchoice"
-        placeholder="Third Choice">
-      <br />
-      D:
-      <input type="text"
-        ng-model="createCtrl.fourthchoice"
-        placeholder="Fourth Choice">
-      <br />
-      Correct Answer:
-      <input type="number"
-        ng-model="createCtrl.correctchoice"
-        placeholder="Correct Answer">
-      <br />
-      <input type="submit" value="Add Question">
-      <br />
+    <div id="create-questions">
 
-      <hr />
-      ALL QUESTIONS:
-      <ul>
-        <li ng-repeat="question in createCtrl.questions">
-          {{question.question_text}}
-          <br/>
-          A: {{question.answers[0].answer_text}}
-          <br/>
-          B: {{question.answers[1].answer_text}}
-          <br/>
-          C: {{question.answers[2].answer_text}}
-          <br/>
-          D: {{question.answers[3].answer_text}}
-          <br/>
-          Correct Answer: {{question.correct_answer_id}}
-        </li>
-      </ul>
+      ADD QUESTIONS:
 
-    </form>
+      <form
+        ng-controller="QuizController as quizCtrl"
+        ng-submit="quizCtrl.create()">
+        QUESTION:
+        <br />
+        <input type="text"
+          ng-model="quizCtrl.questiontext"
+          placeholder="Enter Question Here">
+            <br />
+        Answers:
+        <br />
+        A:
+        <input type="text"
+          ng-model="quizCtrl.firstchoice"
+          placeholder="First Choice">
+        <br />
+        B:
+        <input type="text"
+          ng-model="quizCtrl.secondchoice"
+          placeholder="Second Choice">
+        <br />
+        C:
+        <input type="text"
+          ng-model="quizCtrl.thirdchoice"
+          placeholder="Third Choice">
+        <br />
+        D:
+        <input type="text"
+          ng-model="quizCtrl.fourthchoice"
+          placeholder="Fourth Choice">
+        <br />
+        Correct Answer:
+        <input type="number"
+          ng-model="quizCtrl.correctchoice"
+          placeholder="Correct Answer">
+        <br />
+        <input type="submit" value="Add Question">
+        <br />
+
+        <hr />
+        ALL QUESTIONS:
+        <ul>
+          <li ng-repeat="question in quizCtrl.questions">
+            {{question.question_text}}
+            <br/>
+            A: {{question.answers[0].answer_text}}
+            <br/>
+            B: {{question.answers[1].answer_text}}
+            <br/>
+            C: {{question.answers[2].answer_text}}
+            <br/>
+            D: {{question.answers[3].answer_text}}
+            <br/>
+            Correct Answer: {{question.correct_answer_id}}
+          </li>
+        </ul>
+
+      </form>
+
+    </div>
 
     <!-- <form action="/create.html" method="post">
       QUESTION:
@@ -95,6 +99,9 @@
       Create New Quiz
       </button>
     </form> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
 
   </body>
 </html>
