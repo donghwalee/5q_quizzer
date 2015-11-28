@@ -55,6 +55,15 @@ body {
   border-radius: 6px;
 }
 
+#quiz .progress {
+  width: 550px;
+  position: absolute;
+  top: 160px;
+  left: 40px;
+}
+
+
+
 #quiz .question {
   position: absolute;
   top: 225px;
@@ -125,8 +134,8 @@ body {
 #quiz .feedback {
   color: black;
   margin-top: 50px;
-  transition: opacity 1.5s,
-              margin-top 1.5s;
+  transition: opacity .5s,
+              margin-top .5s;
   visibility: hidden;
   opacity: 0;
 }
@@ -143,7 +152,7 @@ body {
 
 #quiz .active,
 #quiz .inactive {
-  transition: ;eft 1.5s ease-in-out;
+  transition: left .5s ease-in-out;
 }
 
 #quiz .active {
@@ -152,4 +161,8 @@ body {
 
 #quiz .inactive.answered {
   left: -1350px;
+}
+
+#quiz .active.answered {
+  left: 40px;
 }

@@ -3,16 +3,18 @@ var app = angular.module('QuizApp', []);
 app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
   var controller = this;
 
-  $scope.activeQuestion = 0;
-  $scope.randQuestionIndex = 0;
+  console.log("Is this running?");
+  controller.activeQuestion = 0;
+  controller.numQuestions = 0;
+  controller.numCorrect = 0;
 
   $http.get('questions').success(function(data){
     controller.questions = data;
-    numQuestions = data.length;
-    randQuestionIndex = Math.floor(Math.random() * numQuestions);
+    controller.numQuestions = data.length;
+    console.log("GET");
+    console.log(controller.activeQuestion);
+    console.log(controller.numQuestions);
     console.log(data);
-    console.log(randQuestionIndex);
-    console.log(data[randQuestionIndex]);
   });
 
   $scope.selectAnswer = function(qIndex, aIndex) {
@@ -44,7 +46,10 @@ app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $h
     return controller.questions[qIndex].correctAnswer === aIndex;
   };
 
-
+  $scope.selectContinue = function(){
+    controller.activeQuestion = controller.activeQuestion + 1;
+    console.log("CONTINUE: " + controller.activeQuestion);
+  };
 
 
   this.create = function(){

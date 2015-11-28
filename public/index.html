@@ -9,13 +9,23 @@
 
 
     <div id="quiz" ng-controller="QuizController as quizCtrl">
-      <h1>TEXT GOES HERE</h1>
-      <div class="question
-        {{ $index === activeQuestion ? 'active' : 'inactive' }}
+      <h1>TEXT GOES HERE {{quizCtrl.activeQuestion}}</h1>
+
+      <div class="progress">
+        You are currently on question {{1 + quizCtrl.activeQuestion}} of {{quizCtrl.numQuestions}}
+      </div>
+      <!-- <div class="intro">
+        <h2>Welcome</h2>
+        <p>TEST YOUR KNOWLEDGE OF...</p>
+        <p class="btn">START</p>
+      </div> -->
+      <div ng-repeat="quest in quizCtrl.questions"
+      class="question
+        {{ $index === quizCtrl.activeQuestion ? 'active' : 'inactive' }}
         {{ quest.questionState === 'answered' ? 'answered' : 'unanswered' }}"
-        ng-repeat="quest in quizCtrl.questions">
+        >
         <p class="question-text">
-          {{quest.question_text}}
+          {{quest.question_text}} {{$index}}
         </p>
         <p class="answer-choice"
           ng-class="{ selected:isSelected($parent.$index, $index), correct:isCorrect($parent.$index, $index) }"
@@ -23,53 +33,18 @@
           {{ans.answer_text}}
         </p>
 
-        <!-- <p class="answer-choice">
-          answer choice 2
-        </p>
-        <p class="answer-choice">
-          answer choice 3
-        </p>
-        <p class="answer-choice">
-          answer choice 4
-        </p> -->
-
         <div class="feedback">
-          <p>
+          <p ng-show="quest.correctness === 'correct'">
             You are correct!
           </p>
-          <p>
+          <p ng-show="quest.correctness === 'incorrect'">
             Sorry, you are incorrect
           </p>
-          <div class="btn">
+          <div class="btn" ng-click="selectContinue()">
             NEXT QUESTION
           </div>
         </div>
       </div>
-
-
-    ANSWER QUESTIONS HERE:
-
-    <!-- <form
-      ng-controller="CreateController as createCtrl"
-      ng-submit="createCtrl.create()"> -->
-
-      <!-- <div>
-        <ul>
-          <li ng-repeat="question in createCtrl.questions">
-            {{question.question_text}}
-            <br/>
-            A: {{question.answers[0].answer_text}}
-            <br/>
-            B: {{question.answers[1].answer_text}}
-            <br/>
-            C: {{question.answers[2].answer_text}}
-            <br/>
-            D: {{question.answers[3].answer_text}}
-            <br/>
-            Correct Answer: {{question.correct_answer_id}}
-          </li>
-        </ul>
-      </div> -->
 
     </div>
 
