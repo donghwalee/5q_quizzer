@@ -17,9 +17,8 @@ body {
 #quiz {
   font-size: 16px;
   font-weight: 400;
-  /*width: 650px;*/
   width: 100%;
-  height: 500px;
+  height: 550px;
   position: relative;
   overflow: hidden;
   color: black;
@@ -27,7 +26,7 @@ body {
 }
 
 #quiz h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin: 0px;
   font-weight: 100;
   position: relative;
@@ -73,7 +72,7 @@ body {
 }
 
 #quiz .progress {
-  width: 80%;
+  width: 60%;
   position: absolute;
   top: 100px;
   left: 100%;
@@ -101,7 +100,7 @@ body {
   border: 2px solid yellow;
   border-radius: 6px;
   padding: 10px;
-  margin: 0px 15px 15px 0px;
+  margin: 0px 5px 10px 5px;
   position: relative;
 }
 
@@ -180,6 +179,9 @@ body {
   left: 10%;
 }
 
+#quiz .progress.active {
+  left: 20%;
+}
 
 #quiz .progress.inactive {
   visibility: hidden;
@@ -199,7 +201,7 @@ body {
     font-size: 14px;
   }
   #quiz h1 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   #quiz h2 {
@@ -213,8 +215,15 @@ body {
     position: absolute;
     top: 150px;
   }
+  #quiz .question .question-text  {
+    font-size: 1.2em;
+  }
   #quiz .progress {
+    width: 70%;
     top: 70px;
+  }
+  #quiz .progress.active {
+    left: 15%;
   }
   #quiz .question {
     position: absolute;

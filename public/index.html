@@ -3,19 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
 
     <div id="quiz" ng-controller="QuizController as quizCtrl">
-      <h1>TEXT GOES HERE {{quizCtrl.activeQuestion}}</h1>
+      <h1>TEXT GOES HERE</h1>
 
       <div class="progress {{ (quizCtrl.activeQuestion > -1 && quizCtrl.activeQuestion < quizCtrl.numQuestions ) ? 'active' : 'inactive' }}">
-        You are currently on question {{1 + quizCtrl.activeQuestion}} of {{quizCtrl.numQuestions}}
+        <p>
+          You are currently on question {{1 + quizCtrl.activeQuestion}} of {{quizCtrl.numQuestions}}
+        </p>
       </div>
       <div class="intro {{ (quizCtrl.activeQuestion > -1) ? 'inactive' : 'active'}}">
-        <h2>Welcome</h2>
+        <h2>Howdy!</h2>
         <p>TEST YOUR KNOWLEDGE OF...</p>
         <p class="btn" ng-click="quizCtrl.activeQuestion = 0">START</p>
       </div>
