@@ -7,39 +7,62 @@
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
-    Yo
+    ADD QUESTIONS:
 
-    <form ng-controller="CreateController as createCtrl" ng-submit="createCtrl.create()">
+    <form
+      ng-controller="CreateController as createCtrl"
+      ng-submit="createCtrl.create()">
       QUESTION:
       <br />
       <input type="text"
-          ng-model="createCtrl.questiontext"
-          placeholder="Enter Question Here">
+        ng-model="createCtrl.questiontext"
+        placeholder="Enter Question Here">
           <br />
       Answers:
       <br />
-      A: <input type="text" ng-model="First Choice" placeholder="First Choice">
+      A:
+      <input type="text"
+        ng-model="createCtrl.firstchoice"
+        placeholder="First Choice">
       <br />
-      <input type="hidden" name="question[answers][1][answer_id]" value="1">
-      B: <input type="text" name="question[answers][1][answer_text]" placeholder="Second Choice">
+      B:
+      <input type="text"
+        ng-model="createCtrl.secondchoice"
+        placeholder="Second Choice">
       <br />
-      <input type="hidden" name="question[answers][2][answer_id]" value="2">
-      C: <input type="text" name="question[answers][2][answer_text]" placeholder="Third Choice">
+      C:
+      <input type="text"
+        ng-model="createCtrl.thirdchoice"
+        placeholder="Third Choice">
       <br />
-      <input type="hidden" name="question[answers][3][answer_id]" value="3">
-      D: <input type="text" name="question[answers][3][answer_text]" placeholder="Fourth Choice">
+      D:
+      <input type="text"
+        ng-model="createCtrl.fourthchoice"
+        placeholder="Fourth Choice">
       <br />
-      Correct Answer: <input type="number" name="question[correct_answer_id]" placeholder="Correct Answer">
+      Correct Answer:
+      <input type="number"
+        ng-model="createCtrl.correctchoice"
+        placeholder="Correct Answer">
       <br />
-      <button type="submit" id="submit-button">
-      Create New Quiz!!
-      </button>
+      <input type="submit" value="Add Question">
+      <br />
 
-
+      <hr />
+      ALL QUESTIONS:
       <ul>
         <li ng-repeat="question in createCtrl.questions">
-          {{question.questiontext}}
+          {{question.question_text}}
           <br/>
+          A: {{question.answers[0].answer_text}}
+          <br/>
+          B: {{question.answers[1].answer_text}}
+          <br/>
+          C: {{question.answers[2].answer_text}}
+          <br/>
+          D: {{question.answers[3].answer_text}}
+          <br/>
+          Correct Answer: {{question.correct_answer_id}}
         </li>
       </ul>
 
