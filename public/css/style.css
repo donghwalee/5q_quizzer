@@ -1,0 +1,106 @@
+
+
+body {
+  background-color: white;
+  padding: 20px;
+}
+
+#quiz {
+  font-size: 16px;
+  font-weight: 400;
+  width: 650px;
+  height: 650px;
+  position: relative;
+  overflow: hidden;
+  color: black;
+  border: black solid 1px;
+}
+
+#quiz h1 {
+  font-size: 2em;
+  margin: 0px;
+  font-weight: 100;
+  position: absolute;
+  top: 25px;
+}
+
+#quiz h2 {
+  font-size: 3em;
+  margin: 0px;
+  font-weight: 100;
+}
+
+#quiz h3 {
+  font-size: 2.5em;
+  margin: 0px;
+  font-weight: 100;
+}
+
+#quiz p {
+  margin: 0px 0px 14px 0px;
+}
+
+#quiz .btn {
+  display: inline-block;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 6px;
+}
+
+#quiz .question {
+  position: absolute;
+  top: 225px;
+  left: 40px;
+  width: 550px;
+}
+
+#quiz .question .question-text  {
+  font-size: 1.5em;
+  margin: 0px 0px 20px 0px;
+}
+
+#quiz .question .answer-choice  {
+  display: inline-block;
+  font-size: 1em;
+  width: 225px;
+  border: 2px solid yellow;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 0px 15px 15px 0px;
+  position: relative;
+}
+
+#quiz .question .answer-choice.selected  {
+  border-color: red;
+}
+
+#quiz .question .answer-choice.correct  {
+  border-color: green;
+}
+
+#quiz .question .answer-choice::after  {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: gray no-repeat 0px 0px;
+  background-size: 20px 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+#quiz .question .answer-choice.select::after  {
+  background-image: url(/images/wrong.png);
+}
+
+#quiz .question .answer-choice.select::after  {
+  background-image: url(/images/wrong.png);
+}
+
+#quiz .question .answer-choice.correct::after  {
+  background-image: url(/images/correct.png);
+}
