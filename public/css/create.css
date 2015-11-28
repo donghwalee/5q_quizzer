@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: lightyellow;
+  padding: 5%;
+  text-align: center;
+}
+
+#create-questions {
+  background-color: white;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  position: relative;
+  color: #555;
+  border: #555 solid 1px;
+}
+
+#create-questions h1 {
+  font-size: 2.5em;
+  margin: 0px;
+  font-weight: 100;
+  position: relative;
+  top: 25px;
+}
+
+#create-questions h2 {
+  font-size: 2em;
+  margin: 0px;
+  font-weight: 100;
+}
+
+#create-questions h3 {
+  font-size: 2em;
+  margin: 0px;
+  font-weight: 100;
+}
+
+#create-questions p {
+  margin: 0px 0px 14px 0px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+input {
+  width: 90%
+}
+
+.btn {
+  width: 200px;
+}

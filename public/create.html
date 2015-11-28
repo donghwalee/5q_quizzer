@@ -3,58 +3,90 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/create.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
     <div id="create-questions">
 
-      ADD QUESTIONS:
+      <h1>ADD / VIEW QUESTIONS:</h1>
+      <br />
+      <hr />
 
       <form
         ng-controller="QuizController as quizCtrl"
         ng-submit="quizCtrl.create()">
-        QUESTION:
+        Question Copy:
         <br />
         <input type="text"
           ng-model="quizCtrl.questiontext"
           placeholder="Enter Question Here">
-            <br />
-        Answers:
         <br />
-        A:
+        <br />
+        Answer Choices:
+        <br />
         <input type="text"
           ng-model="quizCtrl.firstchoice"
-          placeholder="First Choice">
+          placeholder="A: First Choice">
         <br />
-        B:
+        <br />
         <input type="text"
           ng-model="quizCtrl.secondchoice"
-          placeholder="Second Choice">
+          placeholder="B: Second Choice">
         <br />
-        C:
+        <br />
         <input type="text"
           ng-model="quizCtrl.thirdchoice"
-          placeholder="Third Choice">
+          placeholder="C: Third Choice">
         <br />
-        D:
+        <br />
         <input type="text"
           ng-model="quizCtrl.fourthchoice"
-          placeholder="Fourth Choice">
+          placeholder="D: Fourth Choice">
+        <br />
         <br />
         Correct Answer:
-        <input type="number"
-          ng-model="quizCtrl.correctchoice"
-          placeholder="Correct Answer">
         <br />
-        <input type="submit" value="Add Question">
+        <label class="radio-inline">
+          <input type="radio"
+            ng-model="quizCtrl.correctchoice"
+            ng-value="0">
+            A
+        </label>
+        <label class="radio-inline">
+          <input type="radio"
+            ng-model="quizCtrl.correctchoice"
+            ng-value="1">
+            B
+        </label>
+        <label class="radio-inline">
+          <input type="radio"
+            ng-model="quizCtrl.correctchoice"
+            ng-value="2">
+            C
+        </label>
+        <label class="radio-inline">
+          <input type="radio"
+            ng-model="quizCtrl.correctchoice"
+            ng-value="3">
+            D
+        </label>
+
+
+
+        <br />
+        <br />
+        <input type="submit" class="btn btn-success" value="Add Question">
         <br />
 
         <hr />
-        ALL QUESTIONS:
+        <h2>QUESTIONS CURRENTLY IN DATABASE:</h2>
+        <br />
         <ul>
           <li ng-repeat="question in quizCtrl.questions">
-            {{question.question_text}}
+            Question: {{question.question_text}}
             <br/>
             A: {{question.answers[0].answer_text}}
             <br/>
@@ -64,41 +96,21 @@
             <br/>
             D: {{question.answers[3].answer_text}}
             <br/>
-            Correct Answer: {{question.correct_answer_id}}
+            <span ng-show="question.correct_answer_id === 0">Correct Answer: A
+            </span>
+            <span ng-show="question.correct_answer_id === 1">Correct Answer: B
+            </span>
+            <span ng-show="question.correct_answer_id === 2">Correct Answer: C
+            </span>
+            <span ng-show="question.correct_answer_id === 3">Correct Answer: D
+            </span>
+            <hr />
           </li>
         </ul>
 
       </form>
 
     </div>
-
-    <!-- <form action="/create.html" method="post">
-      QUESTION:
-      <br />
-      <input type="text"
-          name="question[question_text]"
-          placeholder="Enter Question Here">
-          <br />
-      Answers:
-      <br />
-      <input type="hidden" name="question[answers][0][answer_id]" value="0">
-      A: <input type="text" name="question[answers][0][answer_text]" placeholder="First Choice">
-      <br />
-      <input type="hidden" name="question[answers][1][answer_id]" value="1">
-      B: <input type="text" name="question[answers][1][answer_text]" placeholder="Second Choice">
-      <br />
-      <input type="hidden" name="question[answers][2][answer_id]" value="2">
-      C: <input type="text" name="question[answers][2][answer_text]" placeholder="Third Choice">
-      <br />
-      <input type="hidden" name="question[answers][3][answer_id]" value="3">
-      D: <input type="text" name="question[answers][3][answer_text]" placeholder="Fourth Choice">
-      <br />
-      Correct Answer: <input type="number" name="question[correct_answer_id]" placeholder="Correct Answer">
-      <br />
-      <button type="submit" id="submit-button">
-      Create New Quiz
-      </button>
-    </form> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>

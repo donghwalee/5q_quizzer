@@ -11,17 +11,22 @@
 
 
     <div id="quiz" ng-controller="QuizController as quizCtrl">
-      <h1>TEXT GOES HERE</h1>
+      <h1>SOME TEXT</h1>
+      <br />
+      <hr />
 
       <div class="progress {{ (quizCtrl.activeQuestion > -1 && quizCtrl.activeQuestion < quizCtrl.numQuestions ) ? 'active' : 'inactive' }}">
         <p>
-          You are currently on question {{1 + quizCtrl.activeQuestion}} of {{quizCtrl.numQuestions}}
+          You are currently on question {{1 + quizCtrl.activeQuestion}} out of {{quizCtrl.numQuestions}}
         </p>
       </div>
       <div class="intro {{ (quizCtrl.activeQuestion > -1) ? 'inactive' : 'active'}}">
         <h2>Howdy!</h2>
-        <p>TEST YOUR KNOWLEDGE OF...</p>
-        <p class="btn" ng-click="quizCtrl.activeQuestion = 0">START</p>
+        <br />
+        <p>How long has it been since you last took the SATs (or ACTs)?
+        <br />
+        Miss those days? Great! Try to answer the following 5 questions and see how you do.</p>
+        <p class="btn" ng-click="quizCtrl.activeQuestion = 0">LET'S GO</p>
       </div>
       <div ng-repeat="quest in quizCtrl.questions"
       class="question
@@ -29,7 +34,7 @@
         {{ quest.questionState === 'answered' ? 'answered' : 'unanswered' }}"
         >
         <p class="question-text">
-          {{quest.question_text}} {{$index}}
+          {{quest.question_text}}
         </p>
         <p class="answer-choice"
           ng-class="{ selected:isSelected($parent.$index, $index), correct:isCorrect($parent.$index, $index) }"
@@ -39,20 +44,28 @@
 
         <div class="feedback">
           <p ng-show="quest.correctness === 'correct'">
-            You are correct!
+            You are CORRECT!
           </p>
           <p ng-show="quest.correctness === 'incorrect'">
-            Sorry, you are incorrect
+            Sorry, you are incorrect...
           </p>
           <div class="btn" ng-click="selectContinue()">
-            NEXT QUESTION
+            NEXT
           </div>
         </div>
       </div>
       <div class="results {{ (quizCtrl.activeQuestion === quizCtrl.numQuestions) ? 'active' : 'inactive'}}">
-        <h3>RESULTS</h3>
+        <h3>Whew! You made it all the way through!</h3>
+        <br />
         <p>
-          Thank you! You scored {{quizCtrl.percent}}% by answereing {{quizCtrl.numCorrect}} of total {{quizCtrl.numQuestions}} questions
+          You scored:
+        </p>
+        <h2>
+          {{quizCtrl.percent}}%
+        </h2>
+        <br />
+        <p>
+          by correctly answering {{quizCtrl.numCorrect}} question(s) out of {{quizCtrl.numQuestions}} question(s) total.
         </p>
         </div>
       </div>
