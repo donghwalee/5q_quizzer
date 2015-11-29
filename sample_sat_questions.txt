@@ -19,11 +19,11 @@ A discerning publishing agent can ____ promising material from a mass of submiss
 (D) dramatize
 A
 
-If X is divisible by 2, 3, and 15, which of the following is also divisible by these numbers?
-(A) k + 5
-(B) k + 15
-(C) k + 30
-(D) k + 45
+If x is divisible by 2, 3, and 15, which of the following is also divisible by these numbers?
+(A) x + 5
+(B) x + 15
+(C) x + 30
+(D) x + 45
 C
 
 Because King Philip's desire to make Spain the dominant power in sixteenth-century Europe ran counter to Queen Elizabeth's insistence on autonomy for England, ____ was ____.
