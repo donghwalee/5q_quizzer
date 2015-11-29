@@ -115,15 +115,17 @@ body {
   background: no-repeat 0px 0px;
   background-size: 20px 20px;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 3px;
+  right: 3px;
 }
 
-#quiz .question .answer-choice.select::after  {
-  background-image: url(/images/wrong.png);
+#quiz .question .answer-choice.selected::after  {
+  border-color: red;
+  background-image: url(/images/incorrect.png);
 }
 
 #quiz .question .answer-choice.correct::after  {
+  border-color: green;
   background-image: url(/images/correct.png);
 }
 
@@ -204,7 +206,7 @@ body {
   }
 
   #quiz h3 {
-    font-size: 1.7em;
+    font-size: 1.8em;
   }
   #quiz .intro {
     position: absolute;
