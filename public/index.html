@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   </head>
+
   <body>
 
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <a href="/">HOME</a> /
+        <a href="/create.html">Q's</a> /
+        <a href="https://github.com/donghwalee/5q_quizzer" target="_blank">GitHub</a>
+      </div>
+    </nav>
 
     <div id="quiz" ng-controller="QuizController as quizCtrl">
-      <h1>SOME TEXT</h1>
+      <h1>MEAN QUIZ / VERBAL + MATH</h1>
       <br />
       <hr />
 
@@ -65,7 +73,7 @@
         </h2>
         <br />
         <p>
-          by correctly answering {{quizCtrl.numCorrect}} question(s) out of {{quizCtrl.numQuestions}} question(s) total.
+          by correctly answering {{quizCtrl.numCorrect}} out of {{quizCtrl.numQuestions}} question(s) total.
         </p>
         </div>
       </div>

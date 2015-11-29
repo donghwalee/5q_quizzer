@@ -1,11 +1,13 @@
 * {
   padding: 0;
   margin: 0;
+  font: inherit;
+  box-sizing: border-box;
 }
 
 body {
   background-color: white;
-  padding: 5%;
+  padding: 0% 5% 5% 5%;
   text-align: center;
 }
 
@@ -13,7 +15,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   width: 100%;
-  height: 600px;
+  height: 550px;
   position: relative;
   overflow: hidden;
   color: #555;
@@ -73,8 +75,6 @@ body {
   left: 100%;
 }
 
-
-
 #quiz .question {
   position: absolute;
   top: 150px;
@@ -84,7 +84,7 @@ body {
 }
 
 #quiz .question .question-text  {
-  font-size: 1.3em;
+  font-size: 1.1em;
   margin: 0px 0px 20px 0px;
 }
 
@@ -94,7 +94,7 @@ body {
   width: 40%;
   border: 2px solid yellow;
   border-radius: 6px;
-  padding: 10px;
+  padding: 7px;
   margin: 0px 5px 10px 5px;
   position: relative;
 }
@@ -226,5 +226,18 @@ body {
   }
   #quiz .question .answer-choice  {
     width: 80%;
+    font-size: 1em;
+    border: 2px solid yellow;
+    border-radius: 6px;
+    padding: 3px;
+    margin: 0px 3px 6px 3px;
+    position: relative;
   }
+}
+
+.navbar {
+  background-color: transparent;
+  border: none;
+  top: 10px;
+  font-size: .8em;
 }
