@@ -97,13 +97,13 @@
           <li ng-repeat="question in quizCtrl.questions">
             Question: {{question.question_text}}
             <br/>
-            A: {{question.answers[0].answer_text}}
+            A) {{question.answers[0].answer_text}}
             <br/>
-            B: {{question.answers[1].answer_text}}
+            B) {{question.answers[1].answer_text}}
             <br/>
-            C: {{question.answers[2].answer_text}}
+            C) {{question.answers[2].answer_text}}
             <br/>
-            D: {{question.answers[3].answer_text}}
+            D) {{question.answers[3].answer_text}}
             <br/>
             <span ng-show="question.correct_answer_id === 0">Correct Answer: A
             </span>
