@@ -1,14 +1,19 @@
 # Project Four - MEAN Stack Application
 
-## This is a simple app utilizing the MEAN stack
+## This is a simple quiz app utilizing the MEAN stack
 
 ## Simplified flow for app:
-- User logs in / registers
-- Once logged in, users can see their past trips
-- User can create, edit, comment on, and delete their trips. The trips details as well as the location of the trips, on a map, are visible
-- User can log out when finished
-- For detailed user stories, please see:
-https://app.box.com/shared/static/62abb4q61egfc4qdl2g5mg7ceh17242j.docx
+- Quiz-taker is able to start the quiz from the welcome page
+- As the quiz-taker progresses through each question, the app tells them that they are correct or incorrect, it also tells them which question that they are on
+- Once complete, the app shows the score
+- Through a different panel, one can also enter the quiz questions
+
+## Future additions:
+- User management and ability for some to have rights to create quizzes and some with just quiz-taking
+- Full CRUD (including update and delete capabilities).
+- Ability to enter multiple sets of quizzes and ability for quiz taker to either choose or have it chosen for them.
+- Timed quizzes.
+- Different types of questions, answers, and ability to have other media types.
 
 ## Project URLs:
 - http://sleepy-inlet-6010.herokuapp.com/
@@ -16,16 +21,4 @@ https://app.box.com/shared/static/62abb4q61egfc4qdl2g5mg7ceh17242j.docx
 
 ## Wireframes and user stories used:
 
-![](https://app.box.com/shared/static/2khygf985hesbbur0hpy7vdvl01q9y04.jpg)
-
-![](https://app.box.com/shared/static/0g2oyfrfeddnfcza8u7qltyt9pyknrwf.jpg)
-
-![](https://app.box.com/shared/static/iwp01ukol8g5wwxtkpvllkrcodmuv9wl.jpg)
-
-![](https://app.box.com/shared/static/uow21sy4hr3885oazr619sy52v1xksql.jpg)
-
-![](https://app.box.com/shared/static/eco25dmj3a48feklvnrm557i5ww2u5w3.jpg)
-
-![](https://app.box.com/shared/static/4xde66dm7n3gg7sq4nbixfvym3pq5y36.jpg)
-
-![](https://app.box.com/shared/static/1bug2lozi6wyaa06f4x5icrcmf5wqy4k.jpg)
+![](https://app.box.com/shared/static/t87a1dgxjlsk2qi1ondrs1wyopeale84.jpg)
