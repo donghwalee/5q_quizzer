@@ -1,3 +1,5 @@
+// some of the code below were from / modified from Lynda.com course on Angular quiz
+
 var app = angular.module('QuizApp', []);
 
 app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
